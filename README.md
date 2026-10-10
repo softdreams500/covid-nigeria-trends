@@ -35,7 +35,7 @@ The goal is to explore how cumulative excess deaths per 100,000 people evolved o
 ## 📁 Files in This Repository
 | File | Description |
 |------|--------------|
-| `covid_excess_trend.ipynb` | Main Jupyter notebook |
+| `covid_trend.ipynb` | Main Jupyter notebook |
 | `nigeria_excess_deaths_clean.csv` | Cleaned subset of dataset |
 | `nigeria_excess_deaths_trend.png` | Visualization of excess-death trend |
 | `requirements.txt` | Python dependencies |
@@ -52,3 +52,13 @@ pip install -r requirements.txt
 
 # launch JupyterLab
 jupyter lab
+
+```
+
+Open `covid_trend.ipynb` with the repository root as the working directory and run cells in order from a fresh kernel. The notebook reads the committed `owid-covid-data.csv`; the filename is generic, while the code expects excess-death columns (`Entity`, `Day`, and estimate/bound columns).
+
+## Reproducibility and interpretation
+
+Existing charts and exported CSVs are historical outputs. Re-run and inspect the analysis before quoting the findings above. The forecast is exploratory and assumes an appropriate regular daily series; check date spacing and missing observations first. The final save cell calls `plt.savefig` after `plt.show`, so the saved chart needs visual verification. Running export cells overwrites the tracked CSV and PNG.
+
+`requirements.txt` preserves the original environment snapshot. Its Windows-only packages now have platform markers so they are skipped elsewhere. On PowerShell activation is `.venv\\Scripts\\Activate.ps1`; on macOS/Linux use `source .venv/bin/activate`.
